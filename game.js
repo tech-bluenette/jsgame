@@ -22,7 +22,6 @@ var setOperator = function () {
 function generateNumbers () {
   generatedNumber1 = Math.floor(Math.random() * 20 + 1);
   generatedNumber2 = Math.floor(Math.random() * 20 + 1);
-  alert( "rand1 " + generatedNumber1 + " rand2  " + generatedNumber2); 
   setOperator();
 }
 
@@ -70,8 +69,8 @@ function gameLoop () {
     if ( correct( answer ) ) {
       alert("grats!");
     } else {
-      alert("idiot!");
-      loseLife();
+      loseLife(turn);
+      alert("idiot! " );
     }
 
     changeTurn();
