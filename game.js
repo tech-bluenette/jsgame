@@ -6,7 +6,8 @@ var lives = [3, 3];
 var op = 0;
 var generatedNumber1 = Math.floor(Math.random() * 20 + 1);
 var generatedNumber2 = Math.floor(Math.random() * 20 + 1);
-var userAnswer = prompt('What is the answer to:');
+
+var userAnswer = 0;
 
 var setOperator = function () {
   if (generatedNumber1 < 7) {
@@ -18,14 +19,15 @@ var setOperator = function () {
   }
 }
 
-function generatedNumbers () {
+function generateNumbers () {
   generatedNumber1 = Math.floor(Math.random() * 20 + 1);
   generatedNumber2 = Math.floor(Math.random() * 20 + 1);
+  alert( "rand1 " + generatedNumber1 + " rand2  " + generatedNumber2); 
   setOperator();
 }
 
 function promptUser () {
-  return prompt("Player " + (turn + 1) + "please answer the following " + generatedNumber1 + " " + op + " " + generatedNumber2);
+  return prompt("Player " + (turn + 1) + " please answer the following " + generatedNumber1 + " " + op + " " + generatedNumber2);
 }
 
 function correct ( answer ) {
@@ -40,33 +42,40 @@ function correct ( answer ) {
   }
 }
 
+function loseLife (turn) {
+  if (turn == PLAYER_1) {
+      lives[PLAYER_1]--;
+  }
+  else if (turn == PLAYER_2) {
+    lives[PLAYER_2]--;
+  }
+}
+
+function changeTurn () {
+  if (turn == PLAYER_1) {
+    turn = PLAYER_2
+  }
+  else {
+    turn  = PLAYER_1
+  }
+}
+
 function gameLoop () {
   while (lives[PLAYER_1] >= 1 && lives[PLAYER_2] >= 1) {
 
-    generateNumbers(); // 2.Need to generate two numbers and a mathematical operator to do that
+    generateNumbers();
 
-    var answer = promptUser(); // Generate a question - connect the two numbers & operator to show up in this prompt
+    var answer = promptUser(); 
 
     if ( correct( answer ) ) {
       alert("grats!");
     } else {
       alert("idiot!");
-      looseLife();
+      loseLife();
     }
 
     changeTurn();
-
   }
-
 }
 
-
-
-console.log(question());    
-
-
-
-
-
-
-
+window.onload = function () { gameLoop(); };
