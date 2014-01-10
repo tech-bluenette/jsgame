@@ -1,4 +1,3 @@
-jsgame
-======
 
-A simple math game made with JavaScript
+jsgame
+bf4a7b6f74e483373f1d871aacaa1532db9d5a7a
