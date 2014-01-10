@@ -9,16 +9,21 @@ var userAnswer = 0;
 
 console.log(generatedNumber1);
 
-if ((generatedNumber1) < 7) {
+if (generatedNumber1 < 7) {
     console.log("+");
-}
-else if (((generatedNumber1) >=7) && ((generatedNumber1) < 14)) {
+} else if ((generatedNumber1 >=7) && (generatedNumber1 < 14)) {
     console.log("*");
-}
-else (generatedNumber1 >= 14 && (generatedNumber1) < 21)
-{
+} else if ((generatedNumber1 >= 14) && (generatedNumber1 < 21)) {
     console.log("-"); 
 }
+
+// if(generatedNumber1 < 7) {
+//   console.log("+");
+// } else if((generatedNumber1 >= 7) && (generatedNumber1 < 14)) {
+//   console.log("*");
+// } else ((generatedNumber1 >= 14) && (generatedNumber1 < 21)) {
+//   console.log("-");
+// }
 
 
 
