@@ -67,13 +67,22 @@ function gameLoop () {
     var answer = promptUser(); 
 
     if ( correct( answer ) ) {
-      alert("grats!");
+      alert("You're awesome!");
     } else {
       loseLife(turn);
-      alert("idiot! " );
+      alert("You dissapoint me. " );
     }
 
     changeTurn();
+
+    if (lives[PLAYER_1] < 1 || lives[PLAYER_2] < 1) {
+      if (lives[PLAYER_1] < 1) {
+        prompt("Player 2 wins!");
+      } 
+      else {
+        prompt("Player 1 wins!");
+      }
+    }
   }
 }
 
