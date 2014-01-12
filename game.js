@@ -1,5 +1,7 @@
 var PLAYER_1 = 0;
 var PLAYER_2 = 1;
+var PLAYER_1_NAME = prompt("Enter your name:");
+var PLAYER_2_NAME = prompt("Enter your name:");
 var turn = PLAYER_1;
 var lives = [3, 3];
 
@@ -8,6 +10,8 @@ var generatedNumber1 = Math.floor(Math.random() * 20 + 1);
 var generatedNumber2 = Math.floor(Math.random() * 20 + 1);
 
 var userAnswer = 0;
+
+
 
 var setOperator = function () {
   if (generatedNumber1 < 7) {
@@ -25,8 +29,15 @@ function generateNumbers () {
   setOperator();
 }
 
+// if player 1's turn prompt with player 1's name, else prompt with p2's name
 function promptUser () {
-  return prompt("Player " + (turn + 1) + " please answer the following " + generatedNumber1 + " " + op + " " + generatedNumber2);
+  if (turn == PLAYER_1) {
+    return prompt(PLAYER_1_NAME + "," + " please answer the following " + generatedNumber1 + " " + op + " " + generatedNumber2);
+  }
+  else {
+
+  return prompt(PLAYER_2_NAME + "," + " please answer the following " + generatedNumber1 + " " + op + " " + generatedNumber2);
+  };
 }
 
 function correct ( answer ) {
@@ -50,6 +61,9 @@ function loseLife (turn) {
   }
 }
 
+// turn = PLAYER_2 means SET turn to PLAYER_2.
+// two == in this case means "does turn equal PLAYER_1?" == is evaluating whether turn and PLAYER_1 are the same.
+// one = in this case means "set the turn to PLAYER_2".
 function changeTurn () {
   if (turn == PLAYER_1) {
     turn = PLAYER_2
@@ -77,10 +91,10 @@ function gameLoop () {
 
     if (lives[PLAYER_1] < 1 || lives[PLAYER_2] < 1) {
       if (lives[PLAYER_1] < 1) {
-        prompt("Player 2 wins!");
+        prompt(PLAYER_2_NAME +  " wins!");
       } 
       else {
-        prompt("Player 1 wins!");
+        prompt(PLAYER_1_NAME + " wins!");
       }
     }
   }
